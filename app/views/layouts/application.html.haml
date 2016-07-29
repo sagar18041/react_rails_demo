@@ -1,0 +1,36 @@
+!!!
+%html
+  / = render "layouts/head"
+  = stylesheet_link_tag "application"
+  = javascript_include_tag "application"
+  /= stylesheet_link_tag "ss-standard.css"
+  %body
+    / = render "layouts/header_scripts"
+    #transOpaqueBg
+    #quicktour
+      / = link_to "", "#", :id => "desidime-tour-start", :onClick => "desidimeTourClickStart();" if request.path == "/" && !logged_in?
+    #wrapper
+      %header.grid-container-full{:role => "banner"}
+        /= render "header_new"
+      /.grid-container-full
+      /  = render "layouts/deal_baba"
+      .grid-100.tablet-grid-100.grid-parent
+        = content_tag 'p', h(flash[:notice]), :class => 'alert alert-info noticehide' if flash[:notice]
+        = content_tag 'p', h(flash[:error] || flash[:alert]), :class => 'alert alert-danger noticehide' if flash[:error] || flash[:alert]
+      %main.grid-container.gt30{:role => "main"}
+        
+        
+        .grid-100.tablet-grid
+          %article.grid-75.tablet-grid-66.grid-parent
+            = yield
+          %aside.grid-25.tablet-grid-33.grid-parent
+            - if content_for?(:right)
+              = yield :right
+            - else
+              /= render "layouts/right_side"
+      /end main container
+      %footer
+        /= render "layouts/footer"
+
+      /end of footer tag
+    /end of wrapper tag

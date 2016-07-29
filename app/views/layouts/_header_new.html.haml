@@ -1,0 +1,250 @@
+- announcements = current_announcements
+- recent_announcements = new_announcements
+.header-container
+  .header-top
+    .grid-container
+      #user_auth
+        - if current_user
+          = render "static/links"
+        - else
+          %ul.notefication-link-list
+            %li.nlt.signupbg
+              = link_to raw("Login"), login_path, :onclick => "ShowModalPopup('login_form_div'); return false;"
+            %li.nlt
+              = link_to raw("Signup"), signup_path, :onclick => "ShowModalPopup('signup_form_div'); return false;"
+          = render :partial => "layouts/login_signup_form"
+  .header.grid-container.show-grid
+    .grid-25.tablet-grid-35
+      .logo{:itemtype => "http://schema.org/Organization"}
+        = link_to image_tag("desidime-logo.png", :alt => "DesiDime – India’s Largest Online Shopping Community", :itemprop => "logo", :title => "Desidime"), root_path, :itemprop => 'url', :title => "Get best deals, offers, discount coupons and compare prices at DesiDime.com"
+    .grid-75.grid-parent.tablet-grid-65
+      = form_tag selective_search_path, :id => "selective_search_form" ,:method => "get" do |f|
+        .ffsearch
+          %span.ico.ico-search
+          = search_field_tag :keyword, params[:keyword], {:placeholder => "Search", :id => "selective_search_field", :required => "true"}
+          = hidden_field_tag 'search_list', search_type
+%nav.nav-top.shadow.new-navigation
+  .grid-container
+    .nav-inner.grid-80.tablet-grid-75.grid-parent
+      %ul#fnav
+        - cache [sub_nav_list], :expires_in => (4.hours) do
+          %li.drop-menu.mega-menu
+            %a{:href => "javascript:void(0)"} Categories
+            .secondary-menu.ctabletfix.bg-white.shadow-dark
+              - sub_nav_list.each_slice(4).to_a.each do |main_sub_nav|
+                .grid-25.tablet-grid-25
+                  %ul.inner-links
+                    - main_sub_nav.each do |sub_nav|
+                      %li
+                        = link_to category_path(:id => sub_nav[1]) do
+                          %span.icon-parent>
+                            = image_tag(sub_nav[2], alt:sub_nav_list[0], :class=>'lazyload') if sub_nav[2].present?
+                          = sub_nav[0]
+              .grid-100.tablet-grid-100
+                = link_to categories_path, class:"all-stores ftr" do
+                  All Categories
+        %li.drop-menu.mega-menu.tour-step-one
+          %a#toutfix{:href => "javascript:void(0)"} Coupons
+          .secondary-menu.ctabletfix.menufix.bg-white.shadow-dark
+            .cf
+              .grid-20.tablet-grid-20.inner-links
+                .h3 Popular Stores
+                %ul
+                  %li
+                    %a{:href => "/stores/amazon-india"} Amazon
+                  %li
+                    %a{:href => "/stores/flipkart"} Flipkart
+                  %li
+                    %a{:href => "/stores/snapdeal"} Snapdeal
+                  %li
+                    %a{:href => "/stores/ebay"} eBay
+                  %li
+                    %a{:href => "/stores/shopclues"} ShopClues
+              .grid-20.tablet-grid-20.inner-links
+                .h3 Fashion
+                %ul
+                  %li
+                    %a{:href => "/stores/jabong"} Jabong
+                  %li
+                    %a{:href => "/stores/myntra"} Myntra
+                  %li
+                    %a{:href => "/stores/abof"} Abof
+                  %li
+                    %a{:href => "/stores/voonik"} Voonik
+                  %li
+                    %a{:href => "/stores/pepperfry"} Pepperfry
+              .grid-20.tablet-grid-20.inner-links
+                .h3 Food & Grocery
+                %ul
+                  %li
+                    %a{:href => "/stores/dominos"} Dominos
+                  %li
+                    %a{:href => "/stores/mcdonalds"} Mcdonalds
+                  %li
+                    %a{:href => "/stores/swiggy"} Swiggy
+                  %li
+                    %a{:href => "/stores/grofers"} Grofers
+                  %li
+                    %a{:href => "/stores/nearbuy"} Nearbuy
+              .grid-20.tablet-grid-20.inner-links
+                .h3 Travel
+                %ul
+                  %li
+                    %a{:href => "/stores/makemytrip"} Makemytrip
+                  %li
+                    %a{:href => "/stores/cleartrip"} Cleartrip
+                  %li
+                    %a{:href => "/stores/cleartrip"} RedBus
+                  %li
+                    %a{:href => "/stores/uber"} Uber
+                  %li
+                    %a{:href => "/stores/olacabs"} Ola
+              .grid-20.tablet-grid-20.inner-links
+                .h3 Recharge
+                %ul
+                  %li
+                    %a{:href => "/stores/paytm"} Paytm
+                  %li
+                    %a{:href => "/stores/freecharge"} Freecharge
+                  %li
+                    %a{:href => "/stores/mobikwik"} Mobikwik
+            .grid-100.tablet-grid-100
+              = link_to "Top Stores".html_safe, merchants_path, :class=>'all-stores ftr'
+              = link_to "All Coupons".html_safe, coupons_path, :class=>'all-stores ftr'
+        %li.drop-menu.mega-menu
+          %a{:href => "javascript:void(0)"} Deals
+          .secondary-menu.dtabletfix.shadow-dark
+            .grid-30.tablet-grid-30.pad-top-bottom10
+              %ul.inner-links
+                %li
+                  = link_to "Top Deals", root_path
+                %li
+                  = link_to "Popular Deals", popular_deals_path
+                %li
+                  = link_to "Deal Alerts", deal_alerts_path
+                %li
+                  = link_to "Whatsapp Deal Alerts", whatsapp_path
+                //%li
+                //  %a{:href => ""} SMS Deal Alerts
+            - cache ["hotess_channel"], :expires_in => (4.hours) do
+              - top_channels = load_hot_channels
+              .grid-70.tablet-grid-70.show-grid.bg-white
+                .top-channels.clearfix
+                  .h3 Top Channels
+                  - top_channels.each do |channel|
+                    .grid-50.tablet-grid-50.pad-left
+                      = link_to channels_path do
+                        .channels.pos-relative
+                          .count
+                            %span
+                              %i.ico.ico-fire.gutter-right5>
+                              = "#{channel['hotness']}%"
+                          .clearfix
+                          - user = get_user(channel['user_id'])
+                          .channel-imgbox
+                            = image_tag(user.avatar.url(:medium), :class=> 'img80') rescue "<img src='http://cdn1.desidime.com/avatars/default/medium/missing.png' >".html_safe
+                          %div
+                            %strong= user.username rescue ''
+                          .gutter-bottom.height40
+                            = channel['name'].truncate(60)
+                          .subscriber
+                            %span.ico.ico-tv
+                            = "#{channel['channel_subscriptions_count']} subscriber"
+                .grid-100.tablet-grid-100.grid-parent
+                  = link_to "All Channels", channels_path, :class=>'all-stores ftr'
+        %li.drop-menu.mega-menu.tour-step-two
+          %a#toutfix{:href => "javascript:void(0)"} Price Comparison
+          .secondary-menu.pctabletfix.shadow-dark
+            .grid-30.tablet-grid-30.pad-top-bottom10
+              %ul.inner-links
+                %li
+                  = link_to "Tablet", pricesir_path("tablet")
+                %li
+                  = link_to "Mobile Phone", pricesir_path("mobile_phone")
+                %li
+                  = link_to "Camera", pricesir_path("camera")
+                %li
+                  = link_to "External Hard Disk", pricesir_path("external_hard_disk")
+                %li
+                  = link_to "Womens Clothing", pricesir_path("womens_clothing")
+                %li
+                  = link_to "Womens Bags, Belts and Wallets", pricesir_path("womens_bags_belts_and_wallets")
+                %li
+                  = link_to "Mens Clothing", pricesir_path("mens_clothing")
+                %li
+                  = link_to "Mens Footwear", pricesir_path("mens_footwear")
+                %li.new-alert
+                  %span#triangle-topleft
+                  = link_to "Price Alerts", price_alerts_path
+            .grid-70.tablet-grid-70.bg-white.show-grid
+              .top-channels.clearfix
+                .h3 Top Price Drop Products
+                - cache [@price_alert_change_products], :expires_in => (1.hours) do
+                  - @price_alert_change_products.each do |product|
+                    .grid-50.tablet-grid-50.pad-left
+                      = link_to product_path("#{generate_permalink(product)}"), :target=>'_blank' do
+                        .channels.gutter-bottom
+                          .product-imgbox
+                            = image_tag product['image'], :alt => product['name'], :class=>'lazyload'
+                          .height40
+                            = product['name'].truncate(25)
+                          %div
+                            %span.green-text
+                              %i.ico.ico-arrow-downward
+                              %strong= "#{product['change_percentage']}%"
+                            %span
+                              = "Rs. #{product["price"]}"
+              .grid-100.tablet-grid-100.grid-parent
+                = link_to "All Products".html_safe, price_compare_path, :class=>'all-stores ftr'
+        %li.drop-menu
+          %a{:href => "javascript:void(0)"} Forums
+          .secondary-menu.bg-white.shadow-dark
+            .grid-100.tablet-grid-100
+              %ul.inner-links
+                %li
+                  = link_to "Hot Deals Online Forum", "/forums/hot-deals-online"
+                %li
+                  = link_to "Coupons Forum", "/forums/coupons"
+                %li
+                  = link_to "Freebies and Contest Forum", "/forums/freebies-all-free-stuff"
+                %li
+                  = link_to "Dost and Dimers Forum", "/forums/dost-and-dimes"
+                %li
+                  = link_to "All Forums", forums_path, class:"deal-blue-text"
+    .deal-baba-main.grid-20.tablet-grid-25.grid-parent
+      - cache [announcements], :expires_in => (4.hours) do
+        .nav-right.ftr
+          %ul#fnav
+            %li.drop-menu.mega-menu
+              %a.ddanchor{:href => "javascript:void(0)"}
+                = image_tag "deal_baba_Small.png"
+                %span Deal Baba Corner
+              - if announcements.present?
+                .secondary-menu.shadow-dark
+                  - announcements.each do |announcement|
+                    .dealbabablock.brd-right-gray
+                      .pad10
+                        .mimg
+                          = image_tag(announcement_merchant_image(announcement), :class=>'lazyload')
+                        .h2
+                          = announcement.title
+                        %div
+                          = image_tag(announcement.deal_image(:small), :class => "dealbabaimg lazyload") if announcement.deal_image.present?
+                          %p
+                            = link_to announcement.affiliatized_url, :rel => "nofollow", :target => '_blank' do
+                              = announcement.message.truncate(160)
+              - else
+                .secondary-menu.shadow-dark
+                  .nodealbaba
+                    Come back soon!
+                    %br
+                    Baba is searching a deal right now.
+
+- if recent_announcements.present?
+  .deal-baba-floating{"data-elements"=> "#{recent_announcements.join(',')}"}
+    %div.circular-section
+      = image_tag "deal_baba_big.png"
+      %div.total-count
+        %p
+          = recent_announcements.count
+  %a.transoverlay{:href => "javascript:void(0)"}

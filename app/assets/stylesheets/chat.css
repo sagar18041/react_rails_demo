@@ -1,0 +1,359 @@
+/* Chat CSS Start here */
+.wbg {
+  background-color: #FFF;
+  padding: 6px;
+}
+.g5 {
+  width: 5%;
+  float: left;
+}
+.g10 {
+  width: 10%;
+  float: left;
+}
+.g90 {
+  width: 90%;
+  float: left;
+}
+.g95 {
+  width: 95%;
+  float: left;
+}
+.white-card, .grey-card {
+  min-height: 500px;
+  position: relative;
+}
+
+.white-card {
+  background-color: #FFF;
+  -webkit-box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 2px 6px 0 rgba(0,0,0,0.2);
+}
+.grey-card {
+  background-color: #fafafa;
+  -webkit-box-shadow: 0 1px 1px  rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 1px 1px  rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 1px  rgba(0, 0, 0, 0.2);
+}
+.chat-container {
+  padding: 30px 0;
+}
+
+.clh {
+  padding: 0 10px;
+  border-bottom: 1px solid #e4e4e4;
+  font-weight: bold;
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+}
+.cs {
+  background-color: #efefef;
+  border-bottom: 1px solid #e4e4e4;
+  display: table;
+  width: 100%;
+}
+.cs input {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  background-color: #efefef;
+  width: 100%;
+  padding-right: 40px;
+  box-sizing: border-box;
+  display: table-cell;
+  padding: 10px;
+}
+.clist {
+  padding: 0 6px;
+}
+.cwindow, #chat_list_container, #chat_list_search {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.cwindow {
+  height: 360px;
+  padding: 20px;
+  margin-right: 1px;
+}
+#chat_list_container, #chat_list_search {
+  height: 408px;
+}
+#chat_list_search {
+  background-color: #FFF;
+}
+.cpreview {
+  border-bottom: 1px solid #e6e6e6;
+  padding: 6px 0;
+}
+.cmbox .ss-user {
+  color: #333;
+}
+.date-info {
+  font-size: 12px;
+  color: #CCC;
+}
+.date-info {
+  margin-bottom: 10px;
+}
+.message-sender {
+  background-color: #C0E9AF;
+}
+.message-receiver {
+  background-color: #C1DFF9;
+}
+.chat-item {
+  margin: 10px 0;
+}
+.message-sender p, .message-receiver p {
+  margin: 0;
+}
+.message-sender a, .message-receiver a {
+  color: #00c;
+}
+
+
+.cwindow .message, .ui-chatbox-msg .message {
+    line-height: 18px;
+    font-size: 13px;
+    border-radius: 7px;
+    -webkit-border-radius:7px; 
+    -moz-border-radius:7px; 
+    -o-border-radius:7px;
+    position: relative;
+}
+.cwindow .message {
+  width: 60%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+.ui-chatbox-msg .message {
+  width: 90%;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+}
+.align-right {
+  text-align: right;
+}
+
+.align-left {
+  text-align: left;
+}
+
+.cwindow .message-receiver:after, .ui-chatbox-msg .message-receiver:after {
+  border-bottom-color: #C1DFF9!important;
+}
+.cwindow .message-receiver:after {
+  left: 90%;
+}
+.ui-chatbox-msg .message-receiver:after {
+  left: 85%;
+}
+.cwindow .message-sender:after, .ui-chatbox-msg .message-sender:after {
+  border-bottom-color: #C0E9AF;
+}
+.cwindow .message-sender:after {
+  left: 10%;
+}
+.ui-chatbox-msg .message-sender:after {
+  left: 15%;
+}
+.cwindow .message:after, .ui-chatbox-msg .message:after {
+    bottom: 100%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #C0E9AF;
+    border-width: 10px;
+    margin-left: -10px;
+}
+.munread {
+  background-color: #D9EDF7;
+}
+.chatselect.active {
+  background-color: #07A7BF;
+  display: block;
+  z-index: -999;
+  color: #FFF;
+}
+.chatselect.active .cpreview {
+  border-bottom: none;
+}
+.chat-message textarea {
+  width: 100%;
+  border: none;
+  font: 14px/22px "Lato", Arial, sans-serif;
+  resize: none;
+  outline: none;
+  margin-left: 25px;
+}
+.chat-message {
+  padding: 10px 20px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #545454;
+}
+.plist .pname  {
+  float: left;
+  width: 82%;
+}
+.uname {
+  padding-left: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.chatpicblock img, .clh img {
+  border-radius: 50%;
+  border: 2px solid #CCC;
+}
+.chatpicblock img {
+  width: 100%;
+  height: 100%;
+}
+.clh img {
+  width: 34px;
+  height: 34px;
+}
+.status {
+  font-size: 10px;
+  color: #b3b3b3;
+  padding-left: 10px;
+}
+.last-message {
+  padding-left: 10px;
+  font-size: 12px;
+  color: #b3b3b3;
+  width: 100%;
+  overflow: hidden;
+  height: 20px;
+  font-weight: normal;
+}
+.cright .date-info {
+  float: right;
+  clear: both;
+}
+.message-receiver.message {
+  clear: both;
+  float: right;
+}
+.ui-chatbox-msg .date-info {
+  margin-bottom: 10px;
+}
+.fchatlist {
+  padding:6px;
+  background-color:#595959;
+  color:#FFF;
+  text-align:center;
+  font-size:12px;
+}
+.conline, .coffline {
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    bottom: 0;
+    height: 10px;
+    right: 0;
+    position: absolute;
+    width: 10px;
+}
+.conline {
+  background: #35ac19;
+}
+.coffline {
+  background: #999;
+}
+.chatpicblock {
+  position:relative;
+  width: 40px;
+  height: 40px;
+  float: left;
+}
+.chead {
+  padding: 0 10px;
+  border-bottom: 1px solid #d6d6d6;
+  font-weight: bold;
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.cs .ico-search {
+  width: 30px;
+  color: #1976d2;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}
+/* Let's get this party started */
+div.cscroll::-webkit-scrollbar {
+    width: 5px;
+}
+ 
+/* Track */
+div.cscroll::-webkit-scrollbar-track {
+    background-color: #f6f6f6; 
+}
+ 
+/* Handle */
+div.cscroll::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #A8A8A9; 
+}
+div.cscroll::-webkit-scrollbar-thumb:window-inactive {
+  background: #CCC; 
+}
+.chatselect.active .last-message, .chatselect.active .status  {
+  color: #FFF;
+  font-weight: 600;
+}
+.last-message p {
+  margin-bottom: 0;
+}
+.nochat {
+  padding-top: 10%;
+}
+.nct {
+  font-size: 24px;
+  font-style: oblique;
+  color: #07A7BF;
+  text-align: center;
+  margin-bottom: 30px;
+}
+#chat_smiley_icons_container span {
+  padding: 3px;
+  cursor: pointer;
+}
+#chat_smiley_icons_container span:hover{
+  background-color: #EDEDED;
+}
+#chat_smiley_icons_container {
+  background-color: #FFF;
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+}
+.hicon {
+  line-height: 53px;
+}
+.hicon img {
+  vertical-align: bottom;
+}
+.chat_textarea{
+  width: 218px;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+#chat_smiley_icons_container_8 span{
+  cursor: pointer;
+}
+.chat_smiley_icons{
+  bottom: 4px;
+  z-index: 20;
+}

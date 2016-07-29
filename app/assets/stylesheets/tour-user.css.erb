@@ -1,0 +1,262 @@
+/*dashboard css*/
+.news-feed-footer{background:#f7f7f7;}
+.news-feed-footer-wrap{background:#fff;border:1px solid #d5d6d9;color:#4e4e4e}
+/*dashboard css ends*/
+
+/*TOUR PAGE*/
+.product-tour-img img{
+  height: auto;
+  max-width: 100%;
+}
+.grey-bg{background:#f9f9f9}
+.fan-slider-cont{min-height:315px;}
+.tour-block{border-radius:5px;color:#838383;background:#fff;border:1px solid #d6d6d6;}
+.tour-block h2.tour-main-hd{font-size:24px;}
+.tour-block h3.tour-hd{font-size:18px; font-weight: normal;}
+.tour-block .edit_user_image img{width:60px;height:60px;}
+.tour-add-photo-icon{
+  background-image:url(<%= asset_path 'profile-sprite.png' %>);
+  background-position:0 -962px;
+  height:40px;
+  width:38px;
+  background-repeat:no-repeat;
+  display:inline-block;
+}
+.tour-add-mobile-icon{
+  background-image:url(<%= asset_path 'profile-sprite.png' %>);
+  background-position:0 -1003px;
+  height:40px;
+  width:26px;
+  background-repeat:no-repeat;
+  display:inline-block;
+}
+.db-tour-user-img{width:100%;height:142px;}
+.db-tour-user-img img{width:100%;height:100%;}
+.tour-cont-wrap{max-width:1000px;margin:30px auto 0;}
+.tour-span-hd-block{border-bottom:1px solid #dedede;margin-bottom:10px;}
+.tour-span-hd{vertical-align:top;font-size:18px;padding:5px 0 0 5px;}
+.mobile-country-code-block{background:#f7f7f7;display:inline-block;border:1px solid #dedede; padding: 13px 12px;}
+.tour-mobile-input{border:1px solid #dedede;border-left:none;box-shadow:none;border-radius:0;display:inline-block;height:49px;padding:6px 12px;}
+.tour-subscribe-block{min-height:185px}
+.tour-store-block{height:100px}
+.tour-store-favourites-block{width:36px;height:36px;background:#3194c9;position:absolute;top:0;right:0;text-align:center;opacity:0.5;cursor:pointer;}
+.tour-store-favourites-block:hover{opacity:1;}
+.tour-store-favourites-block-hover{width:36px;height:36px;background:#3194c9;position:absolute;top:0;right:0;text-align:center;opacity:1;cursor:pointer;}
+.tour-store-favourites-block .ss-heart, .tour-store-favourites-block-hover .ss-heart{color:#fff;font-size:25px;}
+.tour-store-image-container{width:120px;height:65px;line-height:75px;margin:0 auto;}
+.tour-store-image-container img{max-width:100%;max-height:100%;}
+.mobile-verified-text, .upload-done {
+    background: url(<%= asset_path 'green-check.png' %>) no-repeat scroll 0 2px;
+    font-size: 14px;
+    height: 16px;
+    margin: 10px 0 0 10px;
+    padding-left: 22px;
+}
+.upload-input-name {
+  width: 100%;
+  overflow: hidden;
+}
+/* tour become fan slider starts */
+.owl-carousel .owl-wrapper:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+/* display none until init */
+.owl-carousel{
+  display: none;
+  position: relative;
+  width: 100%;
+  -ms-touch-action: pan-y;
+}
+.owl-carousel .owl-wrapper{
+  display: none;
+  position: relative;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+.owl-carousel .owl-wrapper-outer{
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+.owl-carousel .owl-wrapper-outer.autoHeight{
+  -webkit-transition: height 500ms ease-in-out;
+  -moz-transition: height 500ms ease-in-out;
+  -ms-transition: height 500ms ease-in-out;
+  -o-transition: height 500ms ease-in-out;
+  transition: height 500ms ease-in-out;
+}
+
+.owl-carousel .owl-item{
+  float: left;
+}
+.owl-item h4.deal-user-title{color:#287eb6 }
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div{
+  cursor: pointer;
+}
+.owl-controls .owl-buttons{position:relative;}
+.owl-prev{position:absolute;top:-194px;left:-50px;background:url(<%= asset_path 'profile-sprite.png' %>) no-repeat;background-position:0 -1045px;width:45px;height:45px;text-indent:-9999px;}
+.owl-next{position:absolute;top:-194px;right:-50px;background:url(<%= asset_path 'profile-sprite.png' %>) no-repeat;background-position:0 -1100px;width:45px;height:45px;text-indent:-9999px;}
+.owl-controls {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+/* fix */
+.owl-carousel  .owl-wrapper,
+.owl-carousel  .owl-item{
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility:    hidden;
+  -ms-backface-visibility:     hidden;
+  -webkit-transform: translate3d(0,0,0);
+  -moz-transform: translate3d(0,0,0);
+  -ms-transform: translate3d(0,0,0);
+}
+
+/* tour become fan slider ends */
+
+#owl-demo .item{
+    margin: 10px;
+}
+
+/* style for tour progress-bar start */
+.progress-bar-header-cont{
+  padding:30px 0;
+  background:#005387;
+  height:100px;
+  border-bottom:1px solid #7f7f7f;
+  margin:0 0 20px;
+}
+#progress-nav.cont{
+  height: 100%;
+  width: 735px;
+  left: calc(50% - 370px);
+  text-align: center;
+  padding: 0;
+  margin: 0 auto;
+  position: absolute;
+  top:0px;
+}
+#progress-nav #progress-bar{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 725px;
+  color: #000;
+  height: 5px;
+  margin: 0 auto;
+  border: none;
+  background: #80aec3!important;
+  border-radius: 3px;
+}
+#progress-nav span {
+  height: 30px;
+  width: 30px;
+  border-radius: 100%;
+  border: 3px solid #80aec3;
+  background-color:#80aec3;
+  position: absolute;
+  left:-2px;
+  top: -5px;
+  cursor: pointer;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+#progress-nav p{
+  font-family: Arial;
+  font-size: 14px;
+  color: #fff;
+  text-align: center;
+}
+
+#progress-nav .second{
+  left: 174px;
+}
+#progress-nav .third{
+  left: 350px;
+}
+#progress-nav .fourth{
+  left: 526px;
+}
+#progress-nav .fifth{
+  left: 702px;
+}
+#progress-nav #progress-bar::-webkit-progress-value{ /* Changes line color */
+  background: #fff;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+#progress-nav  #progress-bar::-webkit-progress-bar{ /* Changes background color */
+  background: #80a9c3;
+}
+
+#progress-nav  #progress-bar::-moz-progress-bar {
+  background-color: #fff;
+  border-radius: 3px;
+}
+.border-change{
+  border-color:#fff!important;
+  background-color:#fff!important;
+  -moz-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  -ms-transition: all .4s ease-in-out;
+  -o-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.progress-check-mark{
+  background-image: url(<%= asset_path 'checkmark.png' %>);
+  background-repeat: no-repeat;
+  background-position:center center;
+}
+
+#progress-nav .tx1 {
+  position: absolute;
+  left: -25px;
+  top: 32px;
+  z-index: 9999;
+}
+#progress-nav .tx2 {
+  position: absolute;
+  left: 144px;
+  top: 32px;
+  z-index: 9999;
+}
+#progress-nav .tx3 {
+  position: absolute;
+  left: 338px;
+  top: 32px;
+  z-index: 9999;
+}
+#progress-nav .tx4 {
+  position: absolute;
+  left: 498px;
+  top: 32px;
+  z-index: 9999;
+}
+#progress-nav .tx5 {
+  position: absolute;
+  right: -35px;
+  top: 32px;
+  z-index: 9999;
+}
+
+.bg-blue {
+  background-color: #005387;
+}
+
+/* style for tour progress-bar end */

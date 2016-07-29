@@ -1,0 +1,35 @@
+/ - content_for :head do
+/   = rel_next_prev_link_tags(@posts) if @posts
+.main-container-full
+  / - if @adsense
+  /   %script{:async => "", :src => "//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"}
+  /   .ad-block
+  /     .show-grid
+  /       %ins.adsbygoogle.leaderboard-ad-large{"data-ad-client" => "ca-pub-6055132318164052", "data-ad-slot" => "7329135949", style: "display:inline-block"}
+  /       :javascript
+  /         (adsbygoogle = window.adsbygoogle || []).push({});
+  - if params[:q].present? and params[:q] != "*"
+    .search_deal
+      %a{:href => "#"}
+        %span= @posts.total_count
+        results found for
+        %span "#{params[:q]}"
+    .deal_search_info
+      %span
+        Posts(
+        = @posts.total_count
+        )
+  - else
+    /.breadcrumb.crumbfix
+    /  = breadcrumbs({"Home" => {:path => "/", :title => "Home"}, "Recent Posts" => {}})
+    .h1
+      Recent Posts
+      %span
+        (
+        = @total_count
+        )
+  %section.show-grid
+  /  = paginate @posts
+  %section#posts
+    - @posts.each do |post|
+      = render partial: 'post', locals: {post: post}

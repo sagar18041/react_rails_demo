@@ -1,0 +1,29 @@
+- content_for :footer do
+  :javascript
+    $(function() {
+      $("#tabs").tabs();
+    });
+#right_side_deal.right-side-content
+  .ads-300
+    / = link_to(image_tag("http://cdn3.desidime.com/banners/300-250-mobile-app.jpg",:alt => "Mobile App DesiDime", :class => "rs-ad-responsive"), "https://89246.api-05.com/serve?action=click&publisher_id=89246&site_id=47646", :target => "_blank")
+    / = link_to(image_tag("http://cdn1.desidime.com/banners/WhatsApp-Banner_Desktop_Desidime.png", :class => "rs-ad-responsive"), whatsapp_path(utm_source: "InternalWhatsApp", utm_medium: "Banner", utm_content: "HomepageWhatsappBanner", utm_campaign: "DD_HomepageWhatsappBanner"), :target => "_blank")
+    = link_to(image_tag("http://cdn3.desidime.com/banners/Birthday_Bash_300_250.png",:alt => "Birthday Bash DesiDime", :class => "rs-ad-responsive"),"http://www.desidime.com/forums/hot-deals-online/topics/desidime-birthday-bash-2016-your-creativity-is-the-need-of-the-hour?f=1&source=banner", :target => "_blank")
+  / - @abtesting ||= rand(10)
+  - if false #@abtesting < 5
+    = render "layouts/featured_deals_container"   
+  / - else
+  / = render "layouts/popular_coupons_container"
+  / = render "layouts/popular_deals_container"
+  - if false
+    .ads-300
+      / Deal - Show Page - Responsive Ad Unit
+      %ins.adsbygoogle.rs-ad-responsive{"data-ad-client" => "ca-pub-6055132318164052", "data-ad-format" => "auto", "data-ad-slot" => "4701867942","data-ad-format" => "rectangle", :style => "display:block"}
+      :javascript
+        (adsbygoogle = window.adsbygoogle || []).push({});
+  / = render "layouts/featured_stores"
+  / = render "layouts/recent_deals_container", :topics => Topic.cached_popular(true), :link => "/forums/hot-deals-online?popular_flag=true", :title => "Recent Trending Offers & Deals"
+  / /= render "layouts/newsletter_subscription" if !current_user || !Subscription.exists?(:email_id => current_user.email, :subscription_type => "daily_deals") 
+  / = render "layouts/global_user_activity"
+  / = render "layouts/submit_btns"
+  / #leaderboard-content
+  /   = render "layouts/leaderboard_tabs"

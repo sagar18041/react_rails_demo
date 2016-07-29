@@ -1,0 +1,13 @@
+- user = post['user']
+.well-gray.user-detail-block
+  %a{:href => "#", :rel => "bookmark", :id => "#{post['id']}"}
+    %abbr.updated{:title => post['created_at']}
+  / TODO - CACHE
+  - cache ["new_prod_user_details", user] do
+    .user-image
+    /= link_to(avatar_for(user), user_path(user))
+    %strong.user-name.link-clr
+      = link_to (truncate(h(user['name']), :length => 15)), "#"
+    .user-cat
+  
+/ end of prod_user_details

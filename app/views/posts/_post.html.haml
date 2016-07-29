@@ -1,0 +1,27 @@
+- post_id = "hide_post_id_#{post['id']}"
+= react_component('Post', body: post['text'].html_safe, post_id: post_id, forum_title: post['forum']['title'], topic_title: post['topic']['title'])
+/ .forums-user-thread.cf{:id => post_id}
+/   .grid-10.grid-parent.tablet-grid-15
+/     = render "post_user_details", :post => post, :first_post => "false"
+/   .grid-90.pad-left.tablet-grid-85
+/     .arrow_box.user-comment-box.well
+/       .user-comment-text
+/         .forum-hot-deal.cf
+/           %ul
+/             %li.ftl
+/               Forum:
+/               = link_to h(post['forum']['title']), '#', :class => "recent_hot_deal"
+/             %li.ftl
+/               Topic:
+/               = link_to h(truncate(post['topic']['title'], length: 50)), "#"
+/             - if true
+/               %li.ftr= link_to "New Topic", "#", :class => "new_topic"
+/             - else
+/               %li= ""
+/         / end of forum_hot_deal
+/         = post['text'].html_safe
+/       / end of forum_user_deal_text
+/       .comment-footer
+/         / = render "posts/like", :post => post
+/         %span
+/           / = link_to "Reply", reply_forum_topic_path(post.forum ,post.topic), :remote => true , :class => 'btn btn-default btn-xs', :onclick => click_value

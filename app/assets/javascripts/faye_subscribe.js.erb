@@ -1,0 +1,9 @@
+$(document).ready(function(){
+  faye_client = new Faye.Client('http://localhost:9292/faye');
+  faye_client.addExtension(FayeSubscriber);
+  // Chatty.faye_client = faye_client;
+  faye_client.subscribe("/test",function (msg) {
+    var post = JSON.parse(msg['post']);
+    // $('#post').prepend("<%#=escape_javascript(render(partial: 'posts/post', locals: {post: []}))%>") 
+  });
+});

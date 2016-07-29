@@ -1,0 +1,43 @@
+:css
+  .pagination{display: none !important;}
+
+- @page_override_title = @seo_title
+- @page_override_meta_description = @seo_description
+- @meta_keywords = @seo_keywords
+= stylesheet_link_tag "token-input-facebook"
+- content_for :head do
+  %link{:href => "android-app://app.desidime/http/desidime.com/home", :rel => "alternate"}
+
+.main-container
+  - if @home_page
+    #Featured_Deals_slider.gb20
+      - if false #@abtesting < 5
+        %h2 Featured Coupons
+        = render "coupons/coupons_slider"
+      - else
+        / TODO - CACHE
+        - cache "new_cached_all_exclusive_and_featured_deals", :expires_in => 15.minutes do
+          %h2 Featured Deals & Offers
+          = render "deals_slider", :deals => Topic.cached_all_exclusive_and_featured_deals
+  #tour-pre-start-step
+    %h1 #{@title_text}
+    %section.grid-100.tablet-grid-100.grid-parent
+      = render "deals_filter"
+    #deals-grid
+      - if @category_ids || @merchant_ids || @user || !@home_page
+        = render "deals_grid", :deals => @deals
+      - else
+        - cache ["new_homepage_recent_top_deals_#{current_page}", @deals] do
+          = render "deals_grid", :deals => @deals
+  %section.grid-100.nopad#hidden_deals
+  - if @adsense
+    .ad-block.cf
+      .show-grid
+        %ins.adsbygoogle.leaderboard-ad{"data-ad-client" => "ca-pub-6055132318164052", "data-ad-slot" => "9724199142", style: "display:inline-block"}
+        :javascript
+          (adsbygoogle = window.adsbygoogle || []).push({});
+  #append_pagination
+    = paginate @deals
+
+- content_for :footer do
+  = javascript_include_tag "deals"

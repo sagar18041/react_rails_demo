@@ -1,0 +1,339 @@
+/* ========================================================================
+ * bootstrap-tour - v0.10.2
+ * http://bootstraptour.com
+ * ========================================================================
+ * Copyright 2012-2013 Ulrich Sossou
+ *
+ * ========================================================================
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * ========================================================================
+ */
+
+/*!
+ * Bootstrap v3.1.0 (http://getbootstrap.com)
+ * Copyright 2011-2014 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+.btn.disabled,
+.btn[disabled],
+fieldset[disabled] .btn {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.btn-group + .btn-default,
+.btn-group .btn-default {
+  color: #333333;
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+.btn-group .btn-default:hover,
+.btn-group + .btn-default:hover,
+.btn-group .btn-default:focus,
+.btn-group .btn-default:active,
+.btn-group .btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  color: #333333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.btn-group .btn-default:active,
+.btn-group .btn-default.active,
+.open > .dropdown-toggle.btn-default {
+  background-image: none;
+}
+.btn-default.disabled,
+.btn-default[disabled],
+fieldset[disabled] .btn-default,
+.btn-default.disabled:hover,
+.btn-default[disabled]:hover,
+fieldset[disabled] .btn-default:hover,
+.btn-default.disabled:focus,
+.btn-default[disabled]:focus,
+fieldset[disabled] .btn-default:focus,
+.btn-default.disabled:active,
+.btn-default[disabled]:active,
+fieldset[disabled] .btn-default:active,
+.btn-default.disabled.active,
+.btn-default[disabled].active,
+fieldset[disabled] .btn-default.active {
+  background-color: #ffffff;
+  border-color: #cccccc;
+}
+.btn-group {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.btn-group > .btn {
+  position: relative;
+  float: left;
+}
+.btn-group > .btn:hover,
+.btn-group > .btn:focus,
+.btn-group > .btn:active,
+.btn-group > .btn.active {
+  z-index: 2;
+}
+.btn-group > .btn:focus {
+  outline: 0;
+}
+.btn-group .btn + .btn,
+.btn-group .btn + .btn-group,
+.btn-group .btn-group + .btn,
+.btn-group .btn-group + .btn-group {
+  margin-left: -1px;
+}
+.btn-toolbar {
+  margin-left: -5px;
+}
+.btn-toolbar .btn-group,
+.btn-toolbar .input-group {
+  float: left;
+}
+.btn-toolbar > .btn,
+.btn-toolbar > .btn-group,
+.btn-toolbar > .input-group {
+  margin-left: 5px;
+}
+.btn-group > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+  border-radius: 0;
+}
+.btn-group > .btn:first-child {
+  margin-left: 0;
+}
+.btn-group > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.btn-group > .btn:last-child:not(:first-child),
+.btn-group > .dropdown-toggle:not(:first-child) {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+.btn-group > .btn-group {
+  float: left;
+}
+.btn-group > .btn-group:not(:first-child):not(:last-child) > .btn {
+  border-radius: 0;
+}
+.btn-group > .btn-group:first-child > .btn:last-child,
+.btn-group > .btn-group:first-child > .dropdown-toggle {
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+.btn-group > .btn-group:last-child > .btn:first-child {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+.btn-group .dropdown-toggle:active,
+.btn-group.open .dropdown-toggle {
+  outline: 0;
+}
+.btn-group > .btn + .dropdown-toggle {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+.btn-group > .btn-lg + .dropdown-toggle {
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.btn-group.open .dropdown-toggle {
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.btn-group.open .dropdown-toggle.btn-link {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.popover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1060;
+  display: none;
+  max-width: 390px;
+  padding: 1px;
+  text-align: left;
+  background-color: #ffffff;
+  background-clip: padding-box;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  white-space: normal;
+}
+.popover.top {
+  margin-top: -10px;
+}
+.popover.right {
+  margin-left: 10px;
+}
+.popover.bottom {
+  margin-top: 10px;
+}
+.popover.left {
+  margin-left: -10px;
+}
+.popover-title {
+  margin: 0;
+  padding: 8px 9px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 18px;
+  background-color: #f2f2f2;
+  border-bottom: 1px solid #ebebeb;
+  border-radius: 5px 5px 0 0;
+}
+.popover-content {
+  padding: 9px;
+  font-size: 12px;
+}
+.popover-content p:last-child {
+  margin-bottom: 0;
+}
+
+.popover > .arrow,
+.popover > .arrow:after {
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+}
+.popover > .arrow {
+  border-width: 11px;
+}
+.popover > .arrow:after {
+  border-width: 10px;
+  content: "";
+}
+.popover.top > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-bottom-width: 0;
+  border-top-color: #999999;
+  border-top-color: rgba(0, 0, 0, 0.25);
+  bottom: -11px;
+}
+.popover.top > .arrow:after {
+  content: " ";
+  bottom: 1px;
+  margin-left: -10px;
+  border-bottom-width: 0;
+  border-top-color: #ffffff;
+}
+.popover.right > .arrow {
+  top: 50%;
+  left: -11px;
+  margin-top: -11px;
+  border-left-width: 0;
+  border-right-color: #999999;
+  border-right-color: rgba(0, 0, 0, 0.25);
+}
+.popover.right > .arrow:after {
+  content: " ";
+  left: 1px;
+  bottom: -10px;
+  border-left-width: 0;
+  border-right-color: #ffffff;
+}
+.popover.bottom > .arrow {
+  left: 50%;
+  margin-left: -11px;
+  border-top-width: 0;
+  border-bottom-color: #999999;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  top: -11px;
+}
+.popover.bottom > .arrow:after {
+  content: " ";
+  top: 1px;
+  margin-left: -10px;
+  border-top-width: 0;
+  border-bottom-color: #ffffff;
+}
+.popover.left > .arrow {
+  top: 50%;
+  right: -11px;
+  margin-top: -11px;
+  border-right-width: 0;
+  border-left-color: #999999;
+  border-left-color: rgba(0, 0, 0, 0.25);
+}
+.popover.left > .arrow:after {
+  content: " ";
+  right: 1px;
+  border-right-width: 0;
+  border-left-color: #ffffff;
+  bottom: -10px;
+}
+.tour-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1100;
+  background-color: #000;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+.tour-step-backdrop {
+  position: relative;
+  z-index: 1101;
+  background: inherit;
+}
+.tour-step-backdrop > td {
+  position: relative;
+  z-index: 1101;
+}
+.popover[class*="tour-"] {
+  z-index: 1100;
+}
+.popover[class*="tour-"] .popover-navigation {
+  padding: 9px 14px;
+}
+.popover[class*="tour-"] .popover-navigation *[data-role="end"] {
+  float: right;
+}
+.popover[class*="tour-"] .popover-navigation *[data-role="prev"],
+.popover[class*="tour-"] .popover-navigation *[data-role="next"],
+.popover[class*="tour-"] .popover-navigation *[data-role="end"] {
+  cursor: pointer;
+}
+.popover[class*="tour-"] .popover-navigation *[data-role="prev"].disabled,
+.popover[class*="tour-"] .popover-navigation *[data-role="next"].disabled,
+.popover[class*="tour-"] .popover-navigation *[data-role="end"].disabled {
+  cursor: default;
+}
+.popover[class*="tour-"].orphan {
+  position: fixed;
+  margin-top: 0;
+}
+.popover[class*="tour-"].orphan .arrow {
+  display: none;
+}
+.tour-backdrop {
+  z-index: 98;
+}
+
+.tour-step-background {
+  z-index: 98;
+}

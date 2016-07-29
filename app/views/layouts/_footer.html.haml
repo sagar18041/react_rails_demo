@@ -1,0 +1,127 @@
+= javascript_include_tag "application"
+= javascript_include_tag "modalpopup"
+= yield :footer
+= render 'layouts/new_newsletter_subscription' if !current_user || !Subscription.exists?(:email_id => current_user.email, :subscription_type => "daily_deals")
+- if request.path == root_path
+  .grid-100.tablet-grid-100.dark-grey
+    .pad-top-bottom30.grid-container
+      %h2 What is DesiDime?
+      #details-desidime
+        %p Desidime is India&#x2019;s largest online shopping community with more than one lakh members discussing about Online Shopping in India on their legendary forums. It is the best place to find amazing Online Shopping Deals, Online Coupons and Reviews of leading ecommerce stores in India. You can find Shopping Deals and Free Online Coupons of more than 500 store including Flipkart, Amazon India, Jabong, eBay, Snapdeal, Myntra, Freecharge, Paytm, Cleartrip, Yatra, Tradus, Homeshop18, Shopclues, Infibeam, Pepperfry, Expedia, Fashionandyou, Lenskart and many more.
+        %p
+          Desidime aggregates Online Shopping Deals in India and showcase them in categories to make shoppers life easy. Best Shopping Deals for categories such as Baby Care  Toys, Books, Music and Movies, Cameras  Camera Accessories, Car  Bike Accessories, Computers, laptops  Accessories, Electronics, Fashion  Apparels, Food, Entertainment and Services, Freebies, Gaming, Sports and Fitness, Gifting, Stationery  Office Supplies, Home D&#xE9;cor  Furnishing, Home Entertainment, LED LCD TV, Jewellery, Kitchen and Home Appliances, Mobiles  Mobile Accessories, Music, TV  Accessories, Personal care  Cosmetics, Sports and Outdoor Activities, Travel are already available.
+        %p Users will also find extensive reviews written by fellow shoppers for the stores from where they have purchased thus, helping other users to make an informed choice before they shop Online. Store pages on DesiDime provide details like contact details of the store, its return policy, and ratings provided by the users in the last 6 months. The ratings are based on the following parameter
+        %ul.roman-list
+          %li Product and Service Pricing
+          %li Chance of Future Purchase
+          %li Shipping and Packaging
+          %li Customer Service
+          %li Returns and Replacement Policies
+          %li Website's Ease of Use
+        %p So how exactly does DesiDime users help users Best Shopping Deals Online? Imagine you are looking to buy a product and you go and search on one website, then you will try to find Online Shopping Coupons for that particular store. You might even repeat the same exercise for 2 more stores, but how many stores can you really search. Now here comes a community, which is always looking out for good deals and helping each other and provides with the price comparison and thus making your search limited to just one site. Also if a user is looking for Online Shopping Coupons in India, again they do not have to go anywhere else. There is a dedicated section on the site, which has all the working coupons for all the ecommerce stores in India
+        %p Desidime recently also launched social price comparison, which gives the most updated price of any product given that it combines the power of data fetched automatically and Online Discount Coupons used by users to make the price even sweeter. This comparison has currently been launched for mobiles; but will soon be extended to tablets, laptops, cameras, home and kitchen appliances and fashion.
+.light-grey.grid-100.tablet-grid-100
+  .grid-container.pad-top-bottom20
+    .cf.gb20
+      .grid-15.tablet-grid-25.pad-right
+        %span.bold-txt.color-white Top Stores
+      .grid-85.tablet-grid-75.font12
+        = link_to 'Amazon', '/stores/amazon-india', class: "footer-browse-links"
+        = link_to 'Flipkart', '/stores/flipkart', class: "footer-browse-links"
+        = link_to 'Snapdeal', '/stores/snapdeal', class: "footer-browse-links"
+        = link_to 'Ebay', '/stores/ebay', class: "footer-browse-links"
+        = link_to 'Myntra', '/stores/myntra', class: "footer-browse-links"
+        = link_to 'Paytm', '/stores/paytm', class: "footer-browse-links"
+        = link_to 'Freecharge', '/stores/freecharge', class: "footer-browse-links"
+        = link_to 'Jabong', '/stores/jabong', class: "footer-browse-links"
+        = link_to 'Dominos', '/stores/dominos', class: "footer-browse-links"
+        = link_to 'All Stores', '/stores', class: "green-text pad-lr10"
+    .cf.gb20
+      .grid-15.tablet-grid-25.pad-right
+        %span.bold-txt.color-white Browse by Section
+      .grid-85.tablet-grid-75.font12
+        = link_to I18n.t('txt.browse_forums', :default => 'All Forums'), forums_path, class: "footer-browse-links"
+        = link_to I18n.t('txt.browse_stores', :default => 'All Categories'), categories_path, class: "footer-browse-links"
+        = link_to "All Coupons", coupons_path, class: "footer-browse-links"
+        = link_to "Price Comparison", price_compare_path, class: "footer-browse-links"
+        = link_to "Mobile App", mobile_app_path, class: "footer-browse-links"
+        = link_to "Mobile Site", root_path(:mobile => 1), class: "footer-browse-links"
+        / plz update link for price comparison
+    .cf
+      .grid-15.tablet-grid-25.pad-right
+        %span.bold-txt.color-white Special Occasions
+      .grid-85.tablet-grid-75.font12
+        = link_to End Of Season Sale, festival_path('end-of-season-sale'), class: "footer-browse-links"
+        = link_to I18n.t('txt.christmas_deals', :default => 'Christmas Deals'), '/festivals/christmas', class: "footer-browse-links"
+        = link_to I18n.t('txt.diwali_deals', :default => 'Diwali Offers'), '/festivals/diwali-offers-coupons', class: "footer-browse-links"
+        = link_to I18n.t('txt.festival', :default => 'All Festivals'), festivals_path, class: "green-text pad-lr10"
+.grid-100.tablet-grid-100.dark-grey
+  .pad-top-bottom30.grid-container
+    .color-white
+      .grid-25.tablet-grid-25.pad-right
+        .bold-txt
+          %p About us and Legal Stuff
+        .footer-nav
+          .grid-50.tablet-grid-50
+            %ul
+              %li= link_to 'About Us', about_path
+              %li= link_to 'Jobs', jobs_path
+              %li= link_to 'Contact Us', contact_path
+              %li= link_to 'Privacy Policy', privacy_path
+              %li= link_to 'Sitemap', site_map_path
+          .grid-50.tablet-grid-50
+            %ul
+              %li= link_to 'Blog', '/artofshopping'
+              %li= link_to 'FAQs', faqs_path
+              %li= link_to 'Terms of Use', terms_path
+              %li= link_to 'Disclaimer', disclaimer_path
+      .grid-20.tablet-grid-20
+        .bold-txt
+          %p Partnerships
+        .footer-nav
+          .grid-100.tablet-grid-100
+            = link_to 'e-Commerce Merchants', contact_path
+        .bold-txt
+          %p Disclosure
+        .footer-nav
+          .grid-100.tablet-grid-100
+            = link_to(image_tag(cuelinks_logo.png, width: 105, height: 50, title: 'We use Cuelinks for Content Monetization'), 'http://www.cuelinks.com/', target: '_blank', :rel => 'nofollow')
+      .grid-20.tablet-grid-15
+        .bold-txt
+          %p Follow Us On
+        .footer-nav
+          .socialicon.footer.pad-lr10
+            = link_to "", "http://wwww.facebook.com/desidime", class: "ico ico-facebook3", :rel => "nofollow", :target => "_blank"
+            = link_to "", "http://www.twitter.com/desi_dime", class: "ico ico-twitter-social", :rel => "nofollow", :target => "_blank"
+            = link_to "", "http://www.pinterest.com/desidime", class: "ico ico-pinterest-social", :rel => "nofollow", :target => "_blank"
+            = link_to "", "https://plus.google.com/+desidime", class: "ico ico-google-plus", :rel => "nofollow", :target => "_blank"
+            = link_to "", deals_path(:format => "atom") , class: "ico ico-rss3", :rel => "nofollow", :target => "_blank"
+      .grid-35.tablet-grid-40.pad-bottom20
+        .grid-30.tablet-grid-30.grid-parent
+          = image_tag("app-device.png")
+        .grid-70.tablet-grid-70.grid-parent
+          .font17
+            Deals on the Go!
+            %br
+              Download Desidime App
+            .show-grid
+              = link_to(image_tag("download-android.png", title: "Download Coupons  Deals App Desidime on Google Play"), "https://89246.api-05.com/serve?action=clickpublisher_id=89246site_id=47646", target: "_blank", :rel => 'nofollow')
+            .show-grid
+              = link_to(image_tag("download-ios.png", title: "Download Coupons  Deals App Desidime on App Store"), "https://itunes.apple.com/us/app/desidime-deals-and-coupons/id815591290?ls=1mt=8", target: "_blank", :rel => "nofollow")
+  .grid-100.tablet-grid-100.light-grey.pad-all15
+    .grid-container
+      %p.copyright Disclaimer: DesiDime.com does not guarantee, approve or endorse the information or products available at these sites, nor does a link indicate any association with or endorsement by the linked site to DesiDime.com.
+      %p.copyright Community Driven Bargain Hunting. No paid Advertisement or promoted deals as Front Page Deals(FPD)
+      %div
+        - if request.path == "/about"
+          %p.copyright
+            = "2010- #{Date.today.year}. #{link_to 'Parity Cube Pvt Ltd', 'http://www.paritycube.com', :target => '_blank', class: 'copyright'}"
+        - else
+          %p.copyright
+            = "2010- #{Date.today.year}. #{link_to 'Parity Cube Pvt Ltd', 'http://www.paritycube.com', :target => '_blank', :rel => 'nofollow'}"
+      %a.cd-top{:href => "#0"} Top
+  = render 'layouts/footer_scripts'
+  - if content_for?(:chat_box_container)
+    = yield :chat_box_container
+  - else
+    = render 'layouts/chat_box_container'

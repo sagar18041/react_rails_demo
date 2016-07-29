@@ -1,0 +1,5 @@
+development:
+  desi_api:
+    client_id: 'e9dcd6890cf2c5bcc9ed6050af6f000450b63d223a51804c423b019b815310a9'
+    post: 'http://localhost:3005/v3/posts'
+    faye_url: 'http://localhost:9292/'
